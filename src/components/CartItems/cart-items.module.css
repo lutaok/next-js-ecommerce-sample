@@ -1,0 +1,12 @@
+.cart-items-container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-items-container img {
+  border-radius: 0.75rem;
+  border: 1px solid white;
+  aspect-ratio: 1 / 1;
+}
