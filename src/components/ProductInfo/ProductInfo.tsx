@@ -71,7 +71,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           € {product.price}
         </Typography>
 
-        <Rating readOnly value={product.rating} precision={0.01}></Rating>
+        <Rating readOnly value={product.rating} precision={0.1}></Rating>
 
         <ProductInfoAddToCart product={product} />
       </Box>
