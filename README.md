@@ -1,36 +1,74 @@
+# NextJS E-Commerce Sample
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository and run `npm install` on the terminal.
+
+When everything's done start the development server with the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+Highly recommend to enable `Prettier` format on save feature. If that's not the case you can manually run
+
+```bash
+npm run format:fix
+```
+
+to make `Prettier` format every file in the project
+
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+This project also uses [Material UI](https://mui.com/) as a component library and interacts with [DummyJSON](https://dummyjson.com/) [Products](https://dummyjson.com/docs/products) and [Carts](https://dummyjson.com/docs/carts) APIs.
 
-To learn more about Next.js, take a look at the following resources:
+## Build & Preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can build the project running the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+when the build is done you can preview the generated outcome using:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Main Takeaways
+
+- Specified `"use client"` directive on small components in order to take advantage of Server Side Rendering and minimize hydration.
+- Split Context into StateHolder and Dispatcher in order to minimize tree rerendering when cart changes (API design prevents it to be beneficial).
+- Page level error handling can be delegated to the root `error.{jsx | tsx}` file to have a unified error page.
+- MUI overrides system is powerful but tedious. Could take some time to optimize.
+
+## Known Issues
+
+- NextJS 14.2.1 isn't fully compatible with MUI on SSR pages, while NextJS 14.1.1 is.
+- Files mix between CSS Modules, MUI system overrides and inline styling
+- `USER_ID` is 3, there are IDs with no carts and creating a cart would result in errors when updating it (API Design). Highly recommend to stick with `USER_ID = 3`
+
+## TODOs
+
+- CSS Theming and Light/Dark mode
+- Integration Tests
+- End to end Tests
+- Error handling with Alerts when adding products to cart
+- Runtime API data validation with Zod or similar
+
+## Summary
+
+Altough it is far from completed or optimized, it was a fun project to build that spun over a lot of technical aspects of ReactJS, NextJS and MUI.
+I expanded my knowledge on component libraries usage and also found limitations (NextJS 14.2.1) I wasn't expecting to find.
+I also integrated with `DummyJSON` APIs that, since it didn't maintain server state, it made me fully manage data on client side.
+
+I feel like I didn't use every NextJS feature that could benefit this use case so let me know in the issues section what can be better to use.
+
+**Thanks for reading!**
