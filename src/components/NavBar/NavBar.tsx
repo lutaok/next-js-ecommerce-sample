@@ -4,7 +4,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import Link from "next/link";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <AppBar
       position="static"

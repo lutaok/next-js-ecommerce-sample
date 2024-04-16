@@ -9,7 +9,7 @@ const CartItemList = () => {
   const cart = useCartContext();
 
   if (!cart) {
-    throw new Error("no cart found");
+    return <>No cart found</>;
   }
 
   if (cart.totalQuantity === 0) {

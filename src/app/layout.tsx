@@ -3,11 +3,11 @@ import { Inter } from "next/font/google";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
-
-import NavBar from "@/components/NavBar/NavBar";
-import { UserCartProvider } from "@/components/UserCartProvider/UserCartProvider";
-import { getUserCart } from "@/utils/cart";
 import theme from "@/theme";
+
+import { UserCartProvider } from "@/components/UserCartProvider/UserCartProvider";
+import NavBar from "@/components/NavBar/NavBar";
+import { getUserCart } from "@/utils/cart";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

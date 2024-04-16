@@ -26,6 +26,7 @@ const ProductAddToCart = ({ product }: ProductAddToCartProps) => {
       }
       setCart(freshCart);
     } catch (e) {
+      // TODO: Implement Alert
       console.error("Alert", e);
     }
   };

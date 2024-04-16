@@ -10,7 +10,7 @@ const CartActions = () => {
   const cart = useCartContext();
 
   if (!cart) {
-    throw new Error("no cart found");
+    return <>No cart found</>;
   }
 
   return (
@@ -86,4 +86,5 @@ const CartActions = () => {
     </>
   );
 };
+
 export default CartActions;
